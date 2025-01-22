@@ -1,9 +1,19 @@
 var container = document.getElementById('dreambank-container')
 
+function filter_json(data, field, query) {
+	var filtered_data = data.filter(el => {
+		return el[field].includes(query)
+	})
+	return filtered_data
+}
+
 function make_page(data) {
-	data.forEach(entry => {
-		console.log(entry);
-		container.innerHTML += "<li><b>" + entry.name + "</b><p>" + entry.report+ "</p></li>";
+	console.log(data)
+	new_data = filter_json(data, 'name', 'Barb')
+
+	new_data.forEach(el => {
+		console.log(el);
+		container.innerHTML += "<li><b>" + el.name + "</b><p>" + el.report+ "</p></li>";
 	})
 }
 
