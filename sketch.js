@@ -1,5 +1,9 @@
 var container = document.getElementById('dreambank-container')
 
+function get_random(data) {
+	return data[Math.floor(Math.random()*data.length)];
+}
+
 function filter_json(data, field, query) {
 	var filtered_data = data.filter(el => {
 		return el[field].includes(query)
@@ -8,10 +12,9 @@ function filter_json(data, field, query) {
 }
 
 function make_page(data) {
-	console.log(data)
-	new_data = filter_json(data, 'name', 'Barb')
+	// new_data = filter_json(data, 'name', 'Barb')
 
-	new_data.forEach(el => {
+	data.forEach(el => {
 		console.log(el);
 		container.innerHTML += "<li><b>" + el.name + "</b><p>" + el.report+ "</p></li>";
 	})

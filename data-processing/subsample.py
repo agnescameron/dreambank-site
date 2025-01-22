@@ -17,4 +17,4 @@ df = df[~df['name'].str.contains("#2")]
 df = df[~df['report'].str.contains("<")]
 
 
-df.sample(500).to_json("../dreambank-sample.json", orient='records', indent=2 )
+df.sample(100).to_json("../dreambank-sample.json", orient='records', indent=2 )
